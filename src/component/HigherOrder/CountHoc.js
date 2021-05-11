@@ -1,0 +1,29 @@
+import React from 'react'
+
+const UpdatedComponent = OriginalComponent =>{
+    class NewComponent extends React.Component{
+        constructor(){
+            super()
+
+            this.state={
+                count: 0
+            }
+        }
+
+        Increment = ()=>{
+            this.setState(prevState =>{
+                return{count: prevState.count + 1}
+            })
+        }
+
+        render(){
+            return(
+                <OriginalComponent count={this.state.count} increment={this.Increment}/>
+            )
+        }
+    }
+
+    return NewComponent
+}
+
+export default UpdatedComponent
